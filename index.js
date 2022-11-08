@@ -1,25 +1,21 @@
 const cancellation = "It is a pity that you did not want to enter yours";
 
 const age = prompt("What is your birth year?");
-if (!age || !Number(age)) {
-  alert(`${cancellation} birth year :(`);
-}
 
 const city = prompt("What city do you live in?");
-if (!city) {
-  alert(`${cancellation} city :(`);
-}
 
 const sport = prompt("What is your favorite sport?");
-if (!sport) {
-  alert(`${cancellation} favorite sport :(`);
-}
 
 let result = "";
-result += 2022 - Number(age);
-
+if (!age || !Number(age)) {
+  result += `${cancellation} birth year :(`;
+} else {
+  result += 2022 - Number(age);
+}
 result += "\n";
-if (city === "London" || city === "Лондон") {
+if (!city) {
+  result += `${cancellation} city :(`;
+} else if (city === "London" || city === "Лондон") {
   result +=
     "You live in the capital of - " +
     "The United Kingdom of Great Britain and Northern Ireland";
@@ -32,7 +28,9 @@ if (city === "London" || city === "Лондон") {
 }
 
 result += "\n";
-if (sport === "Golf" || sport === "Гольф") {
+if (!sport) {
+  result += `${cancellation} favorite sport :(`;
+} else if (sport === "Golf" || sport === "Гольф") {
   result += "Cool! Do you want to become a champion - " + "Tiger Woods?";
 } else if (sport === "Tennis" || sport === "Теніс") {
   result +=
